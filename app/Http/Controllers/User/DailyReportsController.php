@@ -23,11 +23,31 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reports = $this->dataBase->getUserId(Auth::id());
+        $search_month = $request->input('search-month');
+        //whereでデータベースの中からデータ絞り込み
+        if (empty($search_month)) {
+            // もし空ならば通常の処理
+            $reports = $this->dataBase->getUserId(Auth::id());
+        } else {
+            // 空でなければ絞り込みをして一部一致を取得
+            $reports = $this->dataBase->where('reporting_time', 'like', '%'.$search_month.'%')->get();
+        }
 
         return view('user.dailyReport.index', compact('reports'));
+    }
+
+    public function searchDate(Request $request)
+    {
+        dd('a');
+        //     if (!empty($request['reporting_time'])) {
+    //         $data = Data::getDate($request['reporting_time']);
+    //     } else {
+    //         $date = Date::get();
+    //     }
+
+    //     return view('date', ['date' => $date]);
     }
 
     /**

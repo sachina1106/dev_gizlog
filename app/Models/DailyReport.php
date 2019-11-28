@@ -25,4 +25,9 @@ class DailyReport extends Model
     {
         return $this->where('user_id', $id)->get();
     }
+
+    // public  static function getDate($reporting_time){
+    //     $date = Date::whereBetween("reporting_time", [$from])->get();
+
+    // }
 }
