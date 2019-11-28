@@ -23,7 +23,7 @@ class DailyReport extends Model
 
     public function getUserId($id)
     {
-        return $this->where('user_id', $id)->get();
+        return $this->where('user_id', $id)->paginate(10);
     }
 
     // public  static function getDate($reporting_time){

@@ -30,24 +30,14 @@ class DailyReportsController extends Controller
         if (empty($search_month)) {
             // もし空ならば通常の処理
             $reports = $this->dataBase->getUserId(Auth::id());
+
+        // dd($reports = $this->dataBase->where('user_id', Auth::id())->paginate(2));
         } else {
-            // 空でなければ絞り込みをして一部一致を取得
-            $reports = $this->dataBase->where('reporting_time', 'like', '%'.$search_month.'%')->get();
+            // 空でなければ絞り込みをして一部一致を取得 reporting_timeカラムを絞り込み
+            $reports = $this->dataBase->where('reporting_time', 'like', '%'.$search_month.'%')->paginate(10);
         }
 
         return view('user.dailyReport.index', compact('reports'));
-    }
-
-    public function searchDate(Request $request)
-    {
-        dd('a');
-        //     if (!empty($request['reporting_time'])) {
-    //         $data = Data::getDate($request['reporting_time']);
-    //     } else {
-    //         $date = Date::get();
-    //     }
-
-    //     return view('date', ['date' => $date]);
     }
 
     /**
