@@ -48,6 +48,9 @@ Route::group(['prefix' => '/', 'user.', 'namespace' => 'User'], function () {
         Route::get('reports', 'DailyReportsController@index')->name('index');
         Route::get('reports/create', 'DailyReportsController@create')->name('create');
         Route::post('reports/store', 'DailyReportsController@store')->name('store');
+        Route::get('reports/edit/{id}', 'DailyReportsController@edit')->name('edit');
+        Route::get('reports/edit/{id}', 'DailyReportsController@edit')->name('edit');
+        Route::put('reports/update/{id}', 'DailyReportsController@update')->name('update');
     });
 });
 

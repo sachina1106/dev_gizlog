@@ -4,7 +4,8 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DailyReport;
+use App\Http\Requests\User\DailyReportRequest;
+use App\Models\DailyReport;
 use Auth;
 
 class DailyReportsController extends Controller
@@ -24,10 +25,9 @@ class DailyReportsController extends Controller
      */
     public function index()
     {
-        // $this->database->all();
-        $inputs = $this->dataBase->getUserId(Auth::id());
+        $reports = $this->dataBase->getUserId(Auth::id());
 
-        return view('user.dailyReport.index', compact('inputs'));
+        return view('user.dailyReport.index', compact('reports'));
     }
 
     /**
@@ -47,9 +47,14 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, DailyReportRequest $form)
     {
+        // $input = $request->validate([
+        //             'title' => 'required|string|max:30',
+        //             'content' => 'required|string|max:1000',
+        //         ]);
         $input = $request->all();
+
         $input['user_id'] = Auth::id();
         // dd($input);
         $this->dataBase->fill($input)->save();
@@ -77,6 +82,10 @@ class DailyReportsController extends Controller
      */
     public function edit($id)
     {
+        $report = $this->dataBase->find($id);
+        // dd($report);
+
+        return view('user.dailyReport.edit', compact('report'));
     }
 
     /**
@@ -87,8 +96,12 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, DailyReportRequest $form)
     {
+        $report = $request->all();
+        $this->dataBase->find($id)->fill($report)->save();
+
+        return redirect()->route('reports.index');
     }
 
     /**
