@@ -71,6 +71,9 @@ class DailyReportsController extends Controller
      */
     public function show($id)
     {
+        $report = $this->dataBase->find($id);
+
+        return view('user.dailyReport.show', compact('report'));
     }
 
     /**
@@ -113,5 +116,8 @@ class DailyReportsController extends Controller
      */
     public function destroy($id)
     {
+        $this->dataBase->find($id)->delete();
+
+        return redirect()->route('reports.index');
     }
 }

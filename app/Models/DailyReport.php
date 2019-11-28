@@ -11,6 +11,7 @@ class DailyReport extends Model
     // protected $table = 'my_flights';
     protected $dates = [
         'reporting_time',
+        'deleted_at',
     ];
 
     protected $fillable = [

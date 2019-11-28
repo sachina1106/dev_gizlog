@@ -26,7 +26,7 @@
             <td class="col-xs-2"><?=$report->reporting_time->format('m/d (D)'); ?></td>
             <td class="col-xs-3"><?=$report->title ?></td>
             <td class="col-xs-5"><?=$report->content ?></td>
-          <td class="col-xs-2"><a class="btn" href="{{route('reports.edit',['id'=>$report->id])}}"><i class="fa fa-book"></i></a></td>
+          <td class="col-xs-2"><a class="btn" href="{{route('reports.show',['id'=>$report->id])}}"><i class="fa fa-book"></i></a></td>
           </tr>
           @endforeach
       </tbody>
