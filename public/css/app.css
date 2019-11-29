@@ -8350,3 +8350,6 @@ button.close {
   }
 }
 
+.table-layout{
+  word-wrap: break-word;table-layout: fixed;
+}
