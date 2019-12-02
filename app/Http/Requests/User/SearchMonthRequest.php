@@ -24,7 +24,7 @@ class SearchMonthRequest extends FormRequest
     public function rules()
     {
         return [
-            'search-month' => 'date_format:Y-m',
+            'search-month' => 'date',
         ];
     }
 }
