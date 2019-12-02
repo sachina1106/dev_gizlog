@@ -26,11 +26,11 @@ class DailyReportsController extends Controller
      */
     public function index(SearchMonthRequest $request)
     {
-        $search_month = $request->input('search-month');
+        $searchMonth = $request->input('search-month');
         if (empty($search_month)) {
             $reports = $this->dailyReport->fetchDailyReportByUserId(Auth::id());
         } else {
-            $reports = $this->dailyReport->where('reporting_time', 'like', '%'.$search_month.'%')->paginate(10);
+            $reports = $this->dailyReport->where('reporting_time', 'like', '%'.$searchMonth.'%')->paginate(10);
         }
 
         return view('user.dailyReport.index', compact('reports'));
