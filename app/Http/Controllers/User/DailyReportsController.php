@@ -30,7 +30,7 @@ class DailyReportsController extends Controller
         if (empty($searchMonth)) {
             $reports = $this->dailyReport->fetchDailyReportByUserId(Auth::id());
         } else {
-            $reports = $this->dailyReport->where('user_id', Auth::id())->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+            $reports = $this->dailyReport->getData($searchMonth);
         }
 
         return view('user.dailyReport.index', compact('reports'));

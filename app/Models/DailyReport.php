@@ -25,4 +25,9 @@ class DailyReport extends Model
     {
         return $this->where('user_id', $id)->paginate(10);
     }
+
+    public function getData($searchMonth)
+    {
+        return where('user_id', Auth::id())->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+    }
 }
