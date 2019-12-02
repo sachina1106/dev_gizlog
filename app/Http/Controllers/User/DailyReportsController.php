@@ -26,14 +26,9 @@ class DailyReportsController extends Controller
     public function index(Request $request)
     {
         $search_month = $request->input('search-month');
-        //whereでデータベースの中からデータ絞り込み
         if (empty($search_month)) {
-            // もし空ならば通常の処理
             $reports = $this->dataBase->getUserId(Auth::id());
-
-        // dd($reports = $this->dataBase->where('user_id', Auth::id())->paginate(2));
         } else {
-            // 空でなければ絞り込みをして一部一致を取得 reporting_timeカラムを絞り込み
             $reports = $this->dataBase->where('reporting_time', 'like', '%'.$search_month.'%')->paginate(10);
         }
 
@@ -59,14 +54,9 @@ class DailyReportsController extends Controller
      */
     public function store(Request $request, DailyReportRequest $form)
     {
-        // $input = $request->validate([
-        //             'title' => 'required|string|max:30',
-        //             'content' => 'required|string|max:1000',
-        //         ]);
         $input = $request->all();
 
         $input['user_id'] = Auth::id();
-        // dd($input);
         $this->dataBase->fill($input)->save();
 
         return redirect()->route('reports.index');
@@ -96,7 +86,6 @@ class DailyReportsController extends Controller
     public function edit($id)
     {
         $report = $this->dataBase->find($id);
-        // dd($report);
 
         return view('user.dailyReport.edit', compact('report'));
     }
