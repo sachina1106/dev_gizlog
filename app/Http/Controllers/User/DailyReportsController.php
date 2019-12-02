@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\DailyReportRequest;
+use App\Http\Requests\User\SearchMonthRequest;
 use App\Models\DailyReport;
 use Auth;
 
@@ -23,7 +24,7 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(SearchMonthRequest $request)
     {
         $search_month = $request->input('search-month');
         if (empty($search_month)) {
@@ -52,7 +53,7 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, DailyReportRequest $form)
+    public function store(DailyReportRequest $request)
     {
         $input = $request->all();
 
@@ -98,7 +99,7 @@ class DailyReportsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, DailyReportRequest $form)
+    public function update($id, DailyReportRequest $request)
     {
         $report = $request->all();
         $this->dailyReport->find($id)->fill($report)->save();
