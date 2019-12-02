@@ -21,7 +21,7 @@ class DailyReport extends Model
         'user_id',
     ];
 
-    public function getPagenate($id)
+    public function fetchDailyReportByUserId($id)
     {
         return $this->where('user_id', $id)->paginate(10);
     }
