@@ -15,10 +15,10 @@ class DailyReport extends Model
     ];
 
     protected $fillable = [
+        'user_id',
         'title',
         'content',
         'reporting_time',
-        'user_id',
     ];
 
     public function fetchDailyReportByUserId($id)
