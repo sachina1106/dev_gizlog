@@ -5,12 +5,12 @@
 <div class="main-wrap">
   <div class="btn-wrapper daily-report">
     {!!Form::open(['route'=>['reports.index'],'method'=>'get'])!!}
-      {{-- <input class="form-control" name="search-month" type="month"> --}}
-      {!!Form::input('month','search-month','search-month',['class'=>'form-control'])!!}
-      <button type="submit" class="btn btn-icon"><i class="fa fa-search"></i></button>
-      {{-- {!!Form::button('submit',['class'=>'btn btn-icon'])!!} --}}
-{!!Form::close()!!}
-  <a class="btn btn-icon" href="{{route('reports.create')}}"><i class="fa fa-plus"></i></a>
+    {{-- <input class="form-control" name="search-month" type="month"> --}}
+    {!!Form::input('month','search-month','search-month',['class'=>'form-control'])!!}
+    <button type="submit" class="btn btn-icon"><i class="fa fa-search"></i></button>
+    {{-- {!!Form::button('submit',['class'=>'btn btn-icon'])!!} --}}
+    {!!Form::close()!!}
+    <a class="btn btn-icon" href="{{route('reports.create')}}"><i class="fa fa-plus"></i></a>
   </div>
   <div class="content-wrapper table-responsive">
     <table class="table table-striped">
@@ -24,13 +24,13 @@
       </thead>
       <tbody>
         @foreach($reports as $report)
-          <tr class="row">
-            <td class="col-xs-2">{{$report->reporting_time->format('m/d (D)') }}</td>
-            <td class="col-xs-3">{{$report->title }}</td>
-            <td class="col-xs-5">{!! nl2br(e(str_limit($report->content,80))) !!}</td>
+        <tr class="row">
+          <td class="col-xs-2">{{$report->reporting_time->format('m/d (D)') }}</td>
+          <td class="col-xs-3">{{$report->title }}</td>
+          <td class="col-xs-5">{!! nl2br(e(str_limit($report->content,80))) !!}</td>
           <td class="col-xs-2"><a class="btn" href="{{route('reports.show',['id'=>$report->id])}}"><i class="fa fa-book"></i></a></td>
-          </tr>
-          @endforeach
+        </tr>
+        @endforeach
       </tbody>
     </table>
     {{ $reports->links() }}
