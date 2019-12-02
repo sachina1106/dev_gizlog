@@ -27,7 +27,7 @@ class DailyReportsController extends Controller
     {
         $search_month = $request->input('search-month');
         if (empty($search_month)) {
-            $reports = $this->dailyReport->getUserId(Auth::id());
+            $reports = $this->dailyReport->getPagenate(Auth::id());
         } else {
             $reports = $this->dailyReport->where('reporting_time', 'like', '%'.$search_month.'%')->paginate(10);
         }

@@ -21,13 +21,8 @@ class DailyReport extends Model
         'user_id',
     ];
 
-    public function getUserId($id)
+    public function getPagenate($id)
     {
         return $this->where('user_id', $id)->paginate(10);
     }
-
-    // public  static function getDate($reporting_time){
-    //     $date = Date::whereBetween("reporting_time", [$from])->get();
-
-    // }
 }
