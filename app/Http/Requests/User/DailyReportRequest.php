@@ -26,7 +26,7 @@ class DailyReportRequest extends FormRequest
         return [
             'title' => 'required|string|max:30',
             'content' => 'required|string|max:1000',
-            'reporting_time' => 'required',
+            'reporting_time' => 'required|date_format:Y-m-d',
         ];
     }
 
