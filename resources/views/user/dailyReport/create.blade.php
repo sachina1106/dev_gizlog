@@ -8,15 +8,15 @@
     <div class="form-group form-size-small  {{ $errors->has('reporting_time') ? 'has-error' : '' }}">
       {!!Form::input('date','reporting_time',null,['class'=>'form-control'])!!}
 
-      <span class="help-block">{{ $errors->first('reporting_time') }}</span>
+      @if($errors->has('reporting_time'))<span class="help-block">{{ $errors->first('reporting_time') }}</span>@endif
     </div>
     <div class="form-group  {{ $errors->has('title') ? 'has-error' : '' }}">
       {!!Form::input('text','title',null,['class'=>'form-control','placeholder'=>'Title'])!!}
-      <span class="help-block">{{ $errors->first('title') }}</span>
+      @if($errors->has('title'))<span class="help-block">{{ $errors->first('title') }}</span>@endif
     </div>
     <div class="form-group  {{ $errors->has('content') ? 'has-error' : '' }}">
       {!!Form::textarea('content',null,['class'=>'form-control','placeholder'=>'Content'])!!}
-      <span class="help-block">{{ $errors->first('content') }}</span>
+      @if($errors->has('content'))<span class="help-block">{{ $errors->first('content') }}</span>@endif
     </div>
     {!!Form::submit('Add',['class'=>'btn btn-success pull-right'])!!}
     {!!Form::close()!!}
