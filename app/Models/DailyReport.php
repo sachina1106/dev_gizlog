@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class DailyReport extends Model
 {
     use SoftDeletes;
-    // protected $table = 'my_flights';
     protected $dates = [
         'reporting_time',
         'deleted_at',
