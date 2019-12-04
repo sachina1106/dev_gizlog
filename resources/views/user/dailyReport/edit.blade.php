@@ -6,7 +6,7 @@
   <div class="container">
     {!! Form::open(['route'=>['reports.update', $report->id], 'method'=>'PUT']) !!}
     <div class="form-group form-size-small {{ $errors->has('reporting_time') ? 'has-error' : '' }}">
-      {!! Form::input('data', 'reporting_time', $report->reporting_time->format('Y-m-d'), ['class'=>'form-control'])!!}
+      {!! Form::input('data', 'reporting_time', $report->reporting_time->format('Y/m/d'), ['class'=>'form-control'])!!}
       @if($errors->has('reporting_time'))<span class="help-block">{{ $errors->first('reporting_time') }}</span>@endif
     </div>
     <div class="form-group  {{ $errors->has('title') ? 'has-error' : '' }}">
