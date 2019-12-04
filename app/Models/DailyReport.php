@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class DailyReport extends Model
 {
@@ -27,6 +28,6 @@ class DailyReport extends Model
 
     public function getData($searchMonth)
     {
-        return where('user_id', Auth::id())->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+        return $this->where('user_id', Auth::id())->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
     }
 }
