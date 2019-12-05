@@ -25,7 +25,7 @@ class DailyReport extends Model
         if (empty($searchMonth)) {
             return  $reports = $this->where('user_id', $id)->paginate(10);
         } else {
-            return   $reports = $this->where('user_id', $id)->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+            return  $reports = $this->where('user_id', $id)->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
         }
     }
 }
