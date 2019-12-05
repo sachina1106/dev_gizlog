@@ -20,13 +20,12 @@ class DailyReport extends Model
         'reporting_time',
     ];
 
-    public function fetchDailyReportByUserId($id)
+    public function fetchDailyReportByUserId($id, $searchMonth)
     {
-        return $this->where('user_id', $id)->paginate(10);
-    }
-
-    public function fetchMonthDailyReportByUserId($id, $searchMonth)
-    {
-        return $this->where('user_id', $id)->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+        if (empty($searchMonth)) {
+            return  $reports = $this->where('user_id', $id)->paginate(10);
+        } else {
+            return   $reports = $this->where('user_id', $id)->where('reporting_time', 'like', $searchMonth.'%')->paginate(10);
+        }
     }
 }
