@@ -19,8 +19,7 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * 一覧表示のメソッド.
-     *
+     * 一覧表示のメソッド
      * @return \Illuminate\Http\Response
      */
     public function index(SearchMonthRequest $request)
@@ -31,23 +30,6 @@ class DailyReportsController extends Controller
         return view('user.dailyReport.index', compact('reports'));
     }
 
-    /**
-     * 新規作成画面表示処理.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('user.dailyReport.create');
-    }
-
-    /**
-     * DBに保存処理メソッド.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function store(DailyReportRequest $request)
     {
         $input = $request->all();
@@ -59,10 +41,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * 詳細画面表示処理.
-     *
+     * 詳細画面表示処理
      * @param int $id
-     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -73,10 +53,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * 編集処理.
-     *
+     * 編集処理
      * @param int $id
-     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,11 +65,9 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * 更新処理.
-     *
+     * 更新処理
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
-     *
      * @return \Illuminate\Http\Response
      */
     public function update($id, DailyReportRequest $request)
@@ -103,10 +79,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * 削除処理.
-     *
+     * 削除処理
      * @param int $id
-     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
