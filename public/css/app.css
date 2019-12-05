@@ -8349,7 +8349,3 @@ button.close {
     display: none !important;
   }
 }
-
-.table-layout{
-  word-wrap: break-word;table-layout: fixed;
-}
