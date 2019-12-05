@@ -21,7 +21,6 @@ class DailyReportsController extends Controller
     /**
      * 一覧表示のメソッド.
      *
-     *
      * @return \Illuminate\Http\Response
      */
     public function index(SearchMonthRequest $request)
@@ -34,7 +33,6 @@ class DailyReportsController extends Controller
 
     /**
      * 新規作成画面表示処理.
-     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,7 +60,6 @@ class DailyReportsController extends Controller
 
     /**
      * 詳細画面表示処理.
-     *
      *
      * @param int $id
      *
