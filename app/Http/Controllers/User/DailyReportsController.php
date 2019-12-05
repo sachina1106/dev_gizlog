@@ -19,8 +19,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *一覧表示のメソッド.
+     * 一覧表示のメソッド.
+     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -37,8 +37,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *新規作成画面表示処理.
+     * 新規作成画面表示処理.
+     *
      *
      * @return \Illuminate\Http\Response
      */
@@ -48,10 +48,9 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * DBに保存処理メソッド.
      *
      * @param \Illuminate\Http\Request $request
-     *DBに保存処理メソッド
      *
      * @return \Illuminate\Http\Response
      */
@@ -66,8 +65,8 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *詳細画面表示処理.
+     * 詳細画面表示処理.
+     *
      *
      * @param int $id
      *
@@ -81,10 +80,9 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 編集処理.
      *
      * @param int $id
-     *編集処理
      *
      * @return \Illuminate\Http\Response
      */
@@ -96,11 +94,10 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 更新処理.
      *
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
-     *更新処理
      *
      * @return \Illuminate\Http\Response
      */
@@ -113,10 +110,9 @@ class DailyReportsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 削除処理.
      *
      * @param int $id
-     *削除処理
      *
      * @return \Illuminate\Http\Response
      */
