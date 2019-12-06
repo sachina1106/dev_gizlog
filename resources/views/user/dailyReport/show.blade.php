@@ -5,14 +5,14 @@
 <div class="main-wrap">
   <div class="panel panel-success">
     <div class="panel-heading">
-      {{$report->reporting_time->format('Y/m/d (D)')}} の日報
+      {{ $report->reporting_time->format('Y/m/d (D)') }} の日報
     </div>
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-layout">
         <tbody>
           <tr>
             <th class="table-column">Title</th>
-            <td class="td-text">{{$report->title}}</td>
+            <td class="td-text">{{ $report->title }}</td>
           </tr>
           <tr>
             <th class="table-column">Content</th>
@@ -23,11 +23,11 @@
     </div>
   </div>
   <div class="btn-bottom-wrapper">
-    <a class="btn btn-edit" href="{{route('reports.edit', ['id'=>$report->id])}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+    <a class="btn btn-edit" href="{{ route('reports.edit', ['id' => $report->id]) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
     <div class="btn-delete">
-      {!!Form::open(['route'=>['reports.destroy', $report->id], 'method'=>'DELETE'])!!}
+      {!! Form::open(['route' => ['reports.destroy', $report->id], 'method' => 'DELETE']) !!}
       <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o"></i></button>
-      {!!Form::close()!!}
+      {!! Form::close() !!}
       </form>
     </div>
   </div>
